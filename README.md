@@ -1,18 +1,19 @@
 # IPOFINDS
 
-GitHub-ready static multi-page IPO dashboard for testing.
+Standalone IPO tracking website. This project does not modify or depend on Yoqart.
 
-## Structure
-- `index.html` — Home
-- `ipos.html` — IPO dashboard with search and filters
-- `gmp.html` — GMP dashboard
-- `calendar.html` — IPO calendar
-- `ipo/*.html` — dedicated IPO detail pages
-- `assets/style.css` — shared styling
-- `assets/app.js` — shared data, navigation and interactions
+## Pages
+- `/index.html` — dashboard + home calendar
+- `/ipos.html` — IPO directory
+- `/gmp.html` — GMP tracker
+- `/calendar.html` — full calendar
+- `/ipo/*.html` — dedicated IPO pages
 
-## Deployment
-Upload the contents of this repository to GitHub. `index.html` is at the repository root. No build command is required for a static Cloudflare Pages deployment.
+## Current mode
+Demo data is embedded for testing navigation and UI. The data layer is designed to be replaced by a Cloudflare Worker endpoint without exposing an API key.
 
-## Important
-The included IPO/GMP/subscription values are illustrative demo data. Replace them with verified, compliant server-side data before using the site as a live information service. Do not expose API keys in browser JavaScript.
+## Cloudflare Pages
+Repository root must contain `index.html`. Framework: None. Build command: blank. Build output directory: blank.
+
+## Live API
+See `worker/index.js`. Configure the provider URL and API key as Worker secrets/environment variables; never put the key in `assets/app.js` or GitHub.
